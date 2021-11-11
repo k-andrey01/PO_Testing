@@ -33,42 +33,30 @@ public class LoginTest {
         open(ConfProperties.getProperty("loginpage"));
 }
 
-    @Test
+    //@Test
     public void loginTest() throws InterruptedException {
         LoginPage loginPage = new LoginPage();
         loginPage.LogIn();
-//        loginPage.inputLogin();
-//        loginPage.pressEnter();
-//        loginPage.inputPassword();
-//        loginPage.pressEnter();
         Thread.sleep(1000);
         Assert.assertTrue(WebDriverRunner.url().equals(ConfProperties.getProperty("logURL")));
         switchTo().window(getWebDriver().getWindowHandle()).close();}
 
-    @Test
+    //@Test
     public void serviceTest() throws InterruptedException{
         LoginPage loginPage = new LoginPage();
         ProfilePage profilePage = new ProfilePage();
         loginPage.LogIn();
-//        loginPage.inputLogin(ConfProperties.getProperty("login"));
-//        loginPage.pressEnter();
-//        loginPage.inputPassword(ConfProperties.getProperty("password"));
-//        loginPage.pressEnter();
         profilePage.goServices();
         Thread.sleep(1000);
         Assert.assertTrue(WebDriverRunner.url().equals(ConfProperties.getProperty("servURL")));
         switchTo().window(getWebDriver().getWindowHandle()).close();
     }
 
-    @Test
+    //@Test
     public void postTest() throws InterruptedException{
         LoginPage loginPage = new LoginPage();
         ProfilePage profilePage = new ProfilePage();
         loginPage.LogIn();
-//        loginPage.inputLogin(ConfProperties.getProperty("login"));
-//        loginPage.pressEnter();
-//        loginPage.inputPassword(ConfProperties.getProperty("password"));
-//        loginPage.pressEnter();
         profilePage.goProfileIcon();
         profilePage.goPost();
         Thread.sleep(1000);
@@ -77,17 +65,13 @@ public class LoginTest {
         switchTo().window(getWebDriver().getWindowHandle()).close();
     }
 
-    @Test
+    //@Test
     public void getFile(){
         LoginPage loginPage = new LoginPage();
         ProfilePage profilePage = new ProfilePage();
         ServicesPage servicesPage = new ServicesPage();
         DiskPage diskPage = new DiskPage();
         loginPage.LogIn();
-//        loginPage.inputLogin(ConfProperties.getProperty("login"));
-//        loginPage.pressEnter();
-//        loginPage.inputPassword(ConfProperties.getProperty("password"));
-//        loginPage.pressEnter();
         profilePage.goServices();
         servicesPage.goDisk();
         File statementPdf = null;
@@ -103,17 +87,13 @@ public class LoginTest {
         switchTo().window(getWebDriver().getWindowHandle()).close();
     }
 
-    @Test
+    //@Test
     public void addFile(){
         LoginPage loginPage = new LoginPage();
         ProfilePage profilePage = new ProfilePage();
         ServicesPage servicesPage = new ServicesPage();
         DiskPage diskPage = new DiskPage();
         loginPage.LogIn();
-//        loginPage.inputLogin(ConfProperties.getProperty("login"));
-//        loginPage.pressEnter();
-//        loginPage.inputPassword(ConfProperties.getProperty("password"));
-//        loginPage.pressEnter();
         profilePage.goServices();
         servicesPage.goDisk();
         diskPage.clickAdd();
@@ -121,6 +101,11 @@ public class LoginTest {
             Assert.assertTrue(true);
         }else{
             Assert.assertTrue(false);
+        }
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         switchTo().window(getWebDriver().getWindowHandle()).close();
     }

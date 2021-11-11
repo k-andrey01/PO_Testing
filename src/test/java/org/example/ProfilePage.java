@@ -2,6 +2,7 @@ package org.example;
 
 import com.codeborne.selenide.Condition;
 import org.mvel2.ast.Contains;
+import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -18,5 +19,10 @@ public class ProfilePage {
 
     public void goPost(){
         $(By.xpath("//*[@id=\"root\"]/div/div[2]/div[1]/header/div[2]/div[2]/div/div/div/ul/ul/li[1]")).shouldHave(Condition.text("Почта")).click();
+    }
+
+    public boolean atPage()
+    {
+        return (WebDriverRunner.url().contains(ConfProperties.getProperty("logURL")));
     }
 }
